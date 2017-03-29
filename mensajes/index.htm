@@ -45,10 +45,10 @@ hola
 	navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {                          
         serviceWorkerRegistration.pushManager.subscribe({userVisibleOnly: true})                        
           .then(function(subscription) {                                                                
-           alert(subscription.endpoint.split('/\').slice(-1)[0] + "</p>");
-          })
+           alert(subscription.endpoint);
+          });
         });                                                                                             
-      navigator.serviceWorker.register('../firebase-messaging-sw.js')   
+      navigator.serviceWorker.register('../firebase-messaging-sw.js');
 		
 	messaging.onMessage(function(payload){
 		console.log("onMessage: ", payload)
