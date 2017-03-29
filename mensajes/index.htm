@@ -48,7 +48,7 @@ hola
            alert(subscription.endpoint);
           });
         });                                                                                             
-      navigator.serviceWorker.register('../firebase-messaging-sw.js');
+      navigator.serviceWorker.register('/firebase-messaging-sw.js');
 		
 	messaging.onMessage(function(payload){
 		console.log("onMessage: ", payload)
