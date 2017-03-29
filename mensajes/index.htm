@@ -15,7 +15,7 @@ hola
 <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase-database.js"></script>
 	<script src="https://danielvy01.github.io/prueba3/firebase-messaging-sw.js"></script>
 
-<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase-messaging.js"></script>
+
 <script>
   // Initialize Firebase
   var config = {
@@ -42,7 +42,14 @@ hola
 	}).catch(function(err){debugger;
 		console.log("Error Ocurrido");
 	});
-	
+	navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {                          
+        serviceWorkerRegistration.pushManager.subscribe({userVisibleOnly: true})                        
+          .then(function(subscription) {                                                                
+           alert(subscription.endpoint.split('/\').slice(-1)[0] + "</p>");
+          })
+        });                                                                                             
+      navigator.serviceWorker.register('../firebase-messaging-sw.js')   
+		
 	messaging.onMessage(function(payload){
 		console.log("onMessage: ", payload)
 	});
